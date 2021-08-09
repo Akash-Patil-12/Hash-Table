@@ -6,10 +6,14 @@ namespace HashTableDemo
     class Program
     {
         static void Main(string[] args)
-        {      
+        {
             string sentence = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
             ShowFrequency(sentence);
         }
+        /// <summary>
+        /// show frequency of sentence
+        /// </summary>
+        /// <param name="sentence"></param>
         public static void ShowFrequency(string sentence)
         {
             bool checkFirst = true;
@@ -21,6 +25,11 @@ namespace HashTableDemo
                 {
                     hash.Add(word, "1");
                     checkFirst = false;
+                    if (word.Equals("avoidable"))
+                    {
+                        hash.Remove(word);
+                        checkFirst = true;
+                    }
                 }
                 else
                 {
@@ -35,11 +44,16 @@ namespace HashTableDemo
                     {
                         hash.Add(word, "1");
                     }
+                    if (word.Equals("avoidable"))
+                    {
+                        hash.Remove(word);
+                    }
                 }
             }
             foreach (string key in wordList)
             {
-                Console.WriteLine(key + " Value is :" + hash.Get(key));
+                if(key!= "avoidable")
+                  Console.WriteLine(key + " Value is :" + hash.Get(key));
             }
         }
     }
