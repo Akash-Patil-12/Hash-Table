@@ -7,7 +7,7 @@ namespace HashTableDemo
     {
         static void Main(string[] args)
         {      
-            string sentence = "To be or not to be";
+            string sentence = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
             ShowFrequency(sentence);
         }
         public static void ShowFrequency(string sentence)
